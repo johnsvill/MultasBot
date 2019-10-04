@@ -1,0 +1,45 @@
+﻿@model MultasTransito.Models.Multas
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Multas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdMunicipalidad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdMunicipalidad)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPlaca)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdPlaca)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Idnit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Idnit)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdMulta" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

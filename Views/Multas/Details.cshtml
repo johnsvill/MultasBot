@@ -1,0 +1,42 @@
+﻿@model MultasTransito.Models.Multas
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Multas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdMunicipalidad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdMunicipalidad)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPlaca)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdPlaca)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Idnit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Idnit)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdMulta">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
