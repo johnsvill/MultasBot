@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Amilcar Bot"] - Amilcar Bot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <title>@ViewData["Amilcar Bot"] - AMILCAR BOT</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -16,8 +16,8 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+<body>    
+    <nav class="navbar navbar-inverse navbar-fixed-top">        
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -26,14 +26,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">MultasTransito</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Amilcar Bot</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Municipios" asp-action="Index">Municipios</a></li>
-                    <li><a asp-area="" asp-controller="Multas" asp-action="About">Multas</a></li>
+                    <li><a asp-area="" asp-controller="Multas" asp-action="Index">Multas</a></li>
                     <li><a asp-area="" asp-controller="Vehiculos" asp-action="Index">Vehiculo</a></li>
-                    <li><a asp-area="" asp-controller="Propietarios" asp-action="Contact">Propietario</a></li>
+                    <li><a asp-area="" asp-controller="Propietarios" asp-action="Index">Propietario</a></li>
                 </ul>
                 <partial name="_LoginPartial" />
             </div>

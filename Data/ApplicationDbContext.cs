@@ -17,7 +17,6 @@ namespace MultasTransito.Data
         public DbSet<Vehiculo> Vehiculo { get; set; }
         public DbSet<Multas> Multas { get; set; }
         public DbSet<Municipios> Municipios { get; set; }
-        public DbSet<Propietario> Propietarios { get; set; }    
-        
+        public DbSet<Propietario> Propietarios { get; set; }            
     }
 }

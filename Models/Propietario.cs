@@ -15,6 +15,6 @@ namespace MultasTransito.Models
         public string Direccion { get; set; }
         public int Licencia { get; set; }
         public int Telefono { get; set; }
-        public string Email { get; set; }
-    }
+        public string Correo { get; set; }
+    }   
 }
