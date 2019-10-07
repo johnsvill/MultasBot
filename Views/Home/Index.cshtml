@@ -6,26 +6,29 @@
     <title>@ViewData["Amilcar Bot"] - Amilcar Bot</title>    
 </head>
 <body>
-    <div>
-        <picture>
-            <img src="IMG\BDG.png" />
-            <source media="(min-width: 600px)">
-            <source media="(min-width: 300px) and (max-width: 600px)"
-                    srcset="html5-logo-large.png">
-            <source media="(max-width: 50px)">
-        </picture>
-    </div>    
-    <div>
-        <select name="Munis">
-            <option selected value="0"> Elige una opción </option>
-            <optgroup label="Municipalidades">
-                <option value="1">Guatemala</option>
-                <option value="2">Mixco</option>
-                <option value="3">Villa Nueva</option>
-                <option value="4">San José Pinula</option>
-                <option value="5">Fraijanes</option>
-            </optgroup>
-        </select>
-    </div>    
+    <form method="post">
+        <div>
+            <picture>
+                <img src="IMG\BDG.png" />
+                <source media="(min-width: 600px)">
+                <source media="(min-width: 300px) and (max-width: 600px)"
+                        srcset="html5-logo-large.png">
+                <source media="(max-width: 50px)">
+            </picture>
+        </div>
+        <div>
+            <select name="Munis">
+                <option selected value="0"> Elige una opción </option>
+                <optgroup label="Municipalidades">
+                    <option value="1">Guatemala</option>
+                    <option value="2">Mixco</option>
+                    <option value="3">Villa Nueva</option>
+                    <option value="4">San José Pinula</option>
+                    <option value="5">Fraijanes</option>
+                </optgroup>
+            </select>
+        </div>
+    </form>
+    
 </body>
 </html>
