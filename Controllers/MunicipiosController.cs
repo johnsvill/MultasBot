@@ -24,28 +24,28 @@ namespace MultasTransito.Controllers
 
         // GET: Municipios
         public async Task<IActionResult> Index(IServiceProvider serviceProvider)
-        {
+        {            
             List<SelectListItem> lst = new List<SelectListItem>
             {
                 new SelectListItem() { Text = "Guatemala", Value = "1" },
                 new SelectListItem() { Text = "Mixco", Value = "2" },
                 new SelectListItem() { Text = "Villa Nueva", Value = "3" },
                 new SelectListItem() { Text = "San José Pinula", Value = "4" },
-                new SelectListItem() { Text = "Fraijanes", Value = "5" }
-            };
+                new SelectListItem() { Text = "Fraijanes", Value = "5" }                
+            };            
 
-            IdentityResult result;
+            //IdentityResult result;
             var MuniFlag = serviceProvider.GetRequiredService<Municipios>();
             var Multas = serviceProvider.GetRequiredService<Multas>();
             string[] NombreMunis = { "Guatemala", "Mixco", "Villa Nueva", "San José Pinula", "Fraijanes" };
-            ViewBag.Opciones = lst;
+            ViewBag.Lista = lst;
 
             foreach (var munis in NombreMunis)    
             {
                 var muniExist = await this._context.Municipios.ToListAsync();
                 if(muniExist == null)
                 {
-                    result = await this._context.Municipios.ToListAsync(NombreMunis);
+                    return NotFound();
                 }
             }
             return View(await _context.Municipios.ToListAsync());
@@ -90,25 +90,24 @@ namespace MultasTransito.Controllers
                     SqlCommand cmd = conn.CreateCommand();
                     conn.Open();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.CommandText = "dbo.MunisOK";
-                    cmd.Parameters.Add("@Guatemala", System.Data.SqlDbType.VarChar, 32).Value = municipios.Nombre + "sp_update";
-                    cmd.Parameters.Add("@VillaNueva", System.Data.SqlDbType.VarChar, 32).Value = municipios.Nombre;
-                    cmd.Parameters.Add("@Mixco", System.Data.SqlDbType.VarChar, 32).Value = municipios.Nombre;
-                    cmd.Parameters.Add("@SanJosePinula", System.Data.SqlDbType.VarChar, 32).Value = municipios.Nombre;
-                    cmd.Parameters.Add("@Fraijanes", System.Data.SqlDbType.VarChar, 32).Value = municipios.Nombre;
+                    cmd.CommandText = "dbo.sp_ConsultarMultas";
+                    cmd.Parameters.Add("@IdMuni", System.Data.SqlDbType.Int).Value = municipios.IdMunicipalidad;
+                    cmd.Parameters.Add("@Nombre", System.Data.SqlDbType.VarChar, 32).Value = municipios.Nombre;
+                    cmd.Parameters.Add("@Direccion", System.Data.SqlDbType.VarChar, 256).Value = municipios.Direccion;
+                    cmd.Parameters.Add("@Descripcion", System.Data.SqlDbType.VarChar, 256).Value = municipios.Descripcion;                    
                     cmd.ExecuteNonQuery();
                     conn.Close();
-
-                    _context.Add(municipios);
-                     await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
+                    _context.Add(municipios); 
+                  
                 }
                 return View(municipios);
             }
             catch(DbUpdateConcurrencyException)
             {
                 
-            }            
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Municipios/Edit/5
@@ -142,19 +141,7 @@ namespace MultasTransito.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {
-                    SqlConnection conn = (SqlConnection)_context.Database.GetDbConnection();
-                    SqlCommand cmd = conn.CreateCommand();
-                    conn.Open();
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.CommandText = "dbo.MunisOK";
-                    cmd.Parameters.Add("@Guatemala", System.Data.SqlDbType.VarChar, 32).Value = municipios.Nombre + "sp_insert";
-                    cmd.Parameters.Add("@VillaNueva", System.Data.SqlDbType.VarChar, 32).Value = municipios.Nombre;
-                    cmd.Parameters.Add("@Mixco", System.Data.SqlDbType.VarChar, 32).Value = municipios.Nombre;
-                    cmd.Parameters.Add("@SanJosePinula", System.Data.SqlDbType.VarChar, 32).Value = municipios.Nombre;
-                    cmd.Parameters.Add("@Fraijanes", System.Data.SqlDbType.VarChar, 32).Value = municipios.Nombre;
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
+                {                    
                     _context.Update(municipios);
                     await _context.SaveChangesAsync();
                 }                

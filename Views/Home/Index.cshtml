@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using MultasTransito.Controllers;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,19 +8,21 @@
     <title>@ViewData["Amilcar Bot"] - Amilcar Bot</title>    
 </head>
 <body>
+    <div>
+        <img src="@Url.Content("IMG/BDG.png")" />
+
+        <!--<a href="@Url.Action("Munis", new { searchText = "txtMunis" })">
+        <img alt="BDG" style=" " height="17" src="IMG/BDG.png"/></a> -->
+
+    </div>
     <form method="post">
         <div>
-            <picture>
-                <img src="IMG\BDG.png" />
-                <source media="(min-width: 600px)">
-                <source media="(min-width: 300px) and (max-width: 600px)"
-                        srcset="html5-logo-large.png">
-                <source media="(max-width: 50px)">
-            </picture>
+            @ViewBag.Lista
         </div>
         <div>
+            <h1>Elige la municipalidad a consultar</h1>
             <select name="Munis">
-                <option selected value="0"> Elige una opción </option>
+                <option selected value="0">  --Selección--  </option>
                 <optgroup label="Municipalidades">
                     <option value="1">Guatemala</option>
                     <option value="2">Mixco</option>
@@ -29,6 +33,5 @@
             </select>
         </div>
     </form>
-    
 </body>
 </html>
