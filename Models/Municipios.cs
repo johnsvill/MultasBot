@@ -14,5 +14,7 @@ namespace MultasTransito.Models
         public string Nombre { get; set; }
         public string Direccion { get; set; }
         public string Descripcion { get; set; }
-    }
+        public bool IsChecked { get; set; }
+        public List<Municipios> MunicipiosSelect { get; set; }
+    }    
 }

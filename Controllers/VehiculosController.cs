@@ -54,7 +54,7 @@ namespace MultasTransito.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPlaca,Color,IdNit,Marca,Modelo,Año")] Vehiculo vehiculo)
+        public async Task<IActionResult> Create([Bind("IdPlaca,Color,IdNit,Marca,Modelo,Año,TipoPlaca")] Vehiculo vehiculo)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace MultasTransito.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPlaca,Color,IdNit,Marca,Modelo,Año")] Vehiculo vehiculo)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPlaca,Color,IdNit,Marca,Modelo,Año,TipoPlaca")] Vehiculo vehiculo)
         {
             if (id != vehiculo.IdPlaca)
             {

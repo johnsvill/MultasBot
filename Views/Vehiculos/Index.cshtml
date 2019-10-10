@@ -27,6 +27,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Año)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoPlaca)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -47,6 +50,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Año)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoPlaca)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdPlaca">Edit</a> |

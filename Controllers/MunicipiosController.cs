@@ -22,19 +22,28 @@ namespace MultasTransito.Controllers
             _context = context;
         }
 
+        public ActionResult GetMunicipios()
+        {
+            Municipios municipios = new Municipios();
+            using(ApplicationDbContext db = new ApplicationDbContext())
+            {
+                municipios.MunicipiosSelect = db.Municipios.ToList<Municipios>();
+            }
+            return View(municipios);
+        }
         // GET: Municipios
-        public async Task<IActionResult> Index(IServiceProvider serviceProvider)
+        public async Task<IActionResult> Index()
         {            
-            List<SelectListItem> lst = new List<SelectListItem>
+            /*List<SelectListItem> lst = new List<SelectListItem>
             {
                 new SelectListItem() { Text = "Guatemala", Value = "1" },
                 new SelectListItem() { Text = "Mixco", Value = "2" },
                 new SelectListItem() { Text = "Villa Nueva", Value = "3" },
                 new SelectListItem() { Text = "San José Pinula", Value = "4" },
                 new SelectListItem() { Text = "Fraijanes", Value = "5" }                
-            };            
+            };           
 
-            //IdentityResult result;
+            IdentityResult result;
             var MuniFlag = serviceProvider.GetRequiredService<Municipios>();
             var Multas = serviceProvider.GetRequiredService<Multas>();
             string[] NombreMunis = { "Guatemala", "Mixco", "Villa Nueva", "San José Pinula", "Fraijanes" };
@@ -47,7 +56,7 @@ namespace MultasTransito.Controllers
                 {
                     return NotFound();
                 }
-            }
+            }*/
             return View(await _context.Municipios.ToListAsync());
         }
 
@@ -97,8 +106,7 @@ namespace MultasTransito.Controllers
                     cmd.Parameters.Add("@Descripcion", System.Data.SqlDbType.VarChar, 256).Value = municipios.Descripcion;                    
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    _context.Add(municipios); 
-                  
+                    _context.Add(municipios);                   
                 }
                 return View(municipios);
             }
