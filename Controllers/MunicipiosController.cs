@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using MultasTransito.Data;
 using MultasTransito.Models;
 
@@ -22,48 +20,9 @@ namespace MultasTransito.Controllers
             _context = context;
         }
 
-        public ActionResult GetMunicipios()
-        {
-            string[] NombreMunis = { "Guatemala", "Mixco", "Villa Nueva", "San José Pinula", "Fraijanes" };
-            ViewBag.NombreMunis = NombreMunis;
-            ViewBag.NombreMunisLenght = NombreMunis.Length;
-            Municipios municipios = new Municipios();
-            this._context.Add(NombreMunis);
-            if(NombreMunis == default)
-            {
-                municipios.MunicipiosSelect = _context.Municipios.ToList<Municipios>();
-            }
-            return View(municipios);
-        }
         // GET: Municipios
         public async Task<IActionResult> Index()
         {
-            /*string[] NombreMunis = { "Guatemala", "Mixco", "Villa Nueva", "San José Pinula", "Fraijanes" };
-            ViewBag.NombreMunis = NombreMunis;
-            ViewBag.NombreMunisLenght = NombreMunis.Length;*/
-            /*List<SelectListItem> lst = new List<SelectListItem>
-            {
-                new SelectListItem() { Text = "Guatemala", Value = "1" },
-                new SelectListItem() { Text = "Mixco", Value = "2" },
-                new SelectListItem() { Text = "Villa Nueva", Value = "3" },
-                new SelectListItem() { Text = "San José Pinula", Value = "4" },
-                new SelectListItem() { Text = "Fraijanes", Value = "5" }                
-            };           
-
-            IdentityResult result;
-            var MuniFlag = serviceProvider.GetRequiredService<Municipios>();
-            var Multas = serviceProvider.GetRequiredService<Multas>();
-            string[] NombreMunis = { "Guatemala", "Mixco", "Villa Nueva", "San José Pinula", "Fraijanes" };
-            ViewBag.Lista = lst;
-
-            foreach (var munis in NombreMunis)    
-            {
-                var muniExist = await this._context.Municipios.ToListAsync();
-                if(muniExist == null)
-                {
-                    return NotFound();
-                }
-            }*/
             return View(await _context.Municipios.ToListAsync());
         }
 
@@ -96,7 +55,7 @@ namespace MultasTransito.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdMunicipalidad,Nombre,Direccion,Descripcion")] Municipios municipios)
+        public async Task<IActionResult> Create([Bind("IdMunicipalidad,Nombre,Direccion,Descripcion,IsChecked")] Municipios municipios)
         {
             try
             {
@@ -110,19 +69,21 @@ namespace MultasTransito.Controllers
                     cmd.Parameters.Add("@IdMuni", System.Data.SqlDbType.Int).Value = municipios.IdMunicipalidad;
                     cmd.Parameters.Add("@Nombre", System.Data.SqlDbType.VarChar, 32).Value = municipios.Nombre;
                     cmd.Parameters.Add("@Direccion", System.Data.SqlDbType.VarChar, 256).Value = municipios.Direccion;
-                    cmd.Parameters.Add("@Descripcion", System.Data.SqlDbType.VarChar, 256).Value = municipios.Descripcion;                    
+                    cmd.Parameters.Add("@Descripcion", System.Data.SqlDbType.VarChar, 256).Value = municipios.Descripcion;
+                    cmd.Parameters.Add("IsChecked", System.Data.SqlDbType.Bit).Value = municipios.IsChecked;
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    _context.Add(municipios);                   
+                    _context.Add(municipios);
+                    _context.Add(municipios);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
-                return View(municipios);
             }
-            catch(DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException)
             {
-                
-            }
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            }           
+            return View(municipios);
         }
 
         // GET: Municipios/Edit/5
@@ -146,7 +107,7 @@ namespace MultasTransito.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdMunicipalidad,Nombre,Direccion,Descripcion")] Municipios municipios)
+        public async Task<IActionResult> Edit(int id, [Bind("IdMunicipalidad,Nombre,Direccion,Descripcion,IsChecked")] Municipios municipios)
         {
             if (id != municipios.IdMunicipalidad)
             {
@@ -156,10 +117,10 @@ namespace MultasTransito.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {                    
+                {
                     _context.Update(municipios);
                     await _context.SaveChangesAsync();
-                }                
+                }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!MunicipiosExists(municipios.IdMunicipalidad))
@@ -175,7 +136,7 @@ namespace MultasTransito.Controllers
             }
             return View(municipios);
         }
-        
+
         // GET: Municipios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

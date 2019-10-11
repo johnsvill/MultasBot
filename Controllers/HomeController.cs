@@ -12,11 +12,11 @@ namespace MultasTransito.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ApplicationDbContext dbContext;
+        private readonly ApplicationDbContext dbContext;        
 
         public HomeController(ApplicationDbContext dbContext)
         {
-            this.dbContext = dbContext;
+            this.dbContext = dbContext;            
         }
 
         public IActionResult Index()
@@ -24,7 +24,7 @@ namespace MultasTransito.Controllers
             string[] NombreMunis = { "Guatemala", "Mixco", "Villa Nueva", "San José Pinula", "Fraijanes" };
             ViewBag.NombreMunis = NombreMunis;
             ViewBag.NombreMunisLenght = NombreMunis.Length;
-           /* Municipios municipios = new Municipios();
+            /*Municipios municipios = new Municipios();
             this.dbContext.Add(NombreMunis);
             if (NombreMunis == default)
             {
