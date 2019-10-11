@@ -20,7 +20,16 @@ namespace MultasTransito.Controllers
         }
 
         public IActionResult Index()
-        {             
+        {
+            string[] NombreMunis = { "Guatemala", "Mixco", "Villa Nueva", "San José Pinula", "Fraijanes" };
+            ViewBag.NombreMunis = NombreMunis;
+            ViewBag.NombreMunisLenght = NombreMunis.Length;
+           /* Municipios municipios = new Municipios();
+            this.dbContext.Add(NombreMunis);
+            if (NombreMunis == default)
+            {
+                municipios.MunicipiosSelect = dbContext.Municipios.ToList<Municipios>();
+            }*/
             return View();
         }
 

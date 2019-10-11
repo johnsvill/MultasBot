@@ -24,16 +24,23 @@ namespace MultasTransito.Controllers
 
         public ActionResult GetMunicipios()
         {
+            string[] NombreMunis = { "Guatemala", "Mixco", "Villa Nueva", "San José Pinula", "Fraijanes" };
+            ViewBag.NombreMunis = NombreMunis;
+            ViewBag.NombreMunisLenght = NombreMunis.Length;
             Municipios municipios = new Municipios();
-            using(ApplicationDbContext db = new ApplicationDbContext())
+            this._context.Add(NombreMunis);
+            if(NombreMunis == default)
             {
-                municipios.MunicipiosSelect = db.Municipios.ToList<Municipios>();
+                municipios.MunicipiosSelect = _context.Municipios.ToList<Municipios>();
             }
             return View(municipios);
         }
         // GET: Municipios
         public async Task<IActionResult> Index()
-        {            
+        {
+            /*string[] NombreMunis = { "Guatemala", "Mixco", "Villa Nueva", "San José Pinula", "Fraijanes" };
+            ViewBag.NombreMunis = NombreMunis;
+            ViewBag.NombreMunisLenght = NombreMunis.Length;*/
             /*List<SelectListItem> lst = new List<SelectListItem>
             {
                 new SelectListItem() { Text = "Guatemala", Value = "1" },
