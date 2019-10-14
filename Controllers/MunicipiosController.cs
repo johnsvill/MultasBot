@@ -18,12 +18,13 @@ namespace MultasTransito.Controllers
         public MunicipiosController(ApplicationDbContext context)
         {
             _context = context;
-        }
-
+        }       
+        
         // GET: Municipios
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Municipios.ToListAsync());
+            
+            return View("Index", await _context.Municipios.ToListAsync());
         }
 
         // GET: Municipios/Details/5
@@ -71,7 +72,7 @@ namespace MultasTransito.Controllers
                     cmd.Parameters.Add("@Direccion", System.Data.SqlDbType.VarChar, 256).Value = municipios.Direccion;
                     cmd.Parameters.Add("@Descripcion", System.Data.SqlDbType.VarChar, 256).Value = municipios.Descripcion;
                     cmd.Parameters.Add("IsChecked", System.Data.SqlDbType.Bit).Value = municipios.IsChecked;
-                    cmd.ExecuteNonQuery();
+                    //cmd.ExecuteNonQuery();
                     conn.Close();
                     _context.Add(municipios);
                     _context.Add(municipios);

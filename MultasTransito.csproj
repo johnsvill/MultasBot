@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <UserSecretsId>aspnet-MultasTransito-44DFF565-CA24-40E9-9022-61E322A76DF8</UserSecretsId>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <Win32Resource />
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
 
   <ItemGroup>
