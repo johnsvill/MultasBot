@@ -26,7 +26,10 @@ namespace MultasTransito.Controllers
             string[] NombreMunis = { "Guatemala", "Mixco", "Villa Nueva", "San José Pinula", "Fraijanes" };
             ViewBag.NombreMunis = NombreMunis;
             ViewBag.NombreMunisLenght = NombreMunis.Length;
-          
+            /*ViewBag.Logo = "/images/BDG.png";
+            ViewBag.Favicon = "/favicon.ico";
+            ViwBag.AmilcarBot = "/images/amilcar bot.jpg";*/
+
             return View();
         }
 
@@ -34,6 +37,12 @@ namespace MultasTransito.Controllers
         {
             //ViewData["Message"] = "Your application description page.";
 
+            return View();
+        }
+
+        public ViewResult ShowView()
+        {
+            ViewBag.Logo = Url.Action("");
             return View();
         }
 

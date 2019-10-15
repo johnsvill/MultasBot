@@ -12,10 +12,24 @@ body {
     padding-right: 15px;
 }
 
-.table tr {
-    text-align: justify;
+#Logo {
+    width: auto;
+    height: 120px;
+    padding-top: 15px;
+    position:relative;   
+    margin-bottom: 50px;
 }
 
+#info-consulta{
+
+}
+
+#amilcar-bot {
+    width: 10px;
+    height: 10px;
+    margin-right: 100px;
+    margin-top: 25px;
+}
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;

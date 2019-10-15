@@ -1,17 +1,16 @@
 ﻿@using MultasTransito.Controllers;
+@using MultasTransito.Models;
+@using MultasTransito.Data;
 @model IEnumerable<MultasTransito.Models.Municipios>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
     <title>@ViewData["Amilcar Bot"] - Amilcar Bot</title>
 </head>
-<body>
-    <div>
-        <img src="@Url.Action("wwwroot/images/BDG.png")" style="background: repeat" />
-    </div>
+<body>    
     <form method="post">
         <h2>Elije la municipalidad a consultar</h2>
         @for (var i = 0; i < @ViewBag.NombreMunisLenght; i++)
@@ -23,7 +22,7 @@
     </form>
     <div>
         <table border="1" cellspacing="4" cellpadding="4" id="info-consulta">
-            <thead>               
+            <thead>
                 <tr>
                     <th width="150">Municipalidad</th>
                     <th width="100">Tipo de placa</th>
@@ -42,6 +41,6 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div>    
 </body>
 </html>
