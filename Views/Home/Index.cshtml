@@ -22,15 +22,15 @@
     </form>
     <div>
         <table border="1" cellspacing="4" cellpadding="4" id="info-consulta">
-            <thead>               
+            <thead>
                 <tr>
                     <th width="150">Municipalidad</th>
                     <th width="100">Tipo de placa</th>
                     <th width="100">Número de placa</th>
                     <th width="100">Nit</th>
                     <th>Consultar</th>
-                </tr>                
-            </thead>           
+                </tr>
+            </thead>
             <tbody>
                 <tr>
                     <td></td>
@@ -42,6 +42,14 @@
                     </td>
                 </tr>
             </tbody>
+            <!-- <tbody>
+        @foreach (var vh in ViewData["DatosVehiculo"] as IList<Vehiculo>)
+        {
+            <tr>@vh.IdNit</tr>
+            <tr>@vh.TipoPlaca</tr>
+            <tr>@vh.IdPlaca</tr>
+        }
+    </tbody>-->
         </table>
     </div>    
     <script src="~/lib/jquery/dist/jquery.js/jquery.min.js"></script>
