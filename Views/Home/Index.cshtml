@@ -51,20 +51,6 @@
                 }
             </tbody>
         </table>
-    </div>    
-    <script src="~/lib/jquery/dist/jquery.js/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            function contains(text_one, text_twoo) {
-                return text_one.toLowerCase().indexOf(text_twoo.toLowerCase()) != -1;
-            }
-            $("#Search").keyup(function () {
-                var searchText = $(this).val();
-                $("#Search").each(function () {
-                    this.toggle(contains($(this).text(), searchText));
-                });
-            });
-        });
-    </script>
+    </div>        
 </body>
 </html>
