@@ -42,14 +42,14 @@
                     </td>
                 </tr>
             </tbody>
-            <!-- <tbody>
-        @foreach (var vh in ViewData["DatosVehiculo"] as IList<Vehiculo>)
-        {
-            <tr>@vh.IdNit</tr>
-            <tr>@vh.TipoPlaca</tr>
-            <tr>@vh.IdPlaca</tr>
-        }
-    </tbody>-->
+            <tbody>
+                @foreach (var vh in ViewData["DatosVehiculo"] as IList<Vehiculo>)
+                {
+                    <tr>@vh.IdNit</tr>
+                    <tr>@vh.TipoPlaca</tr>
+                    <tr>@vh.IdPlaca</tr>
+                }
+            </tbody>
         </table>
     </div>    
     <script src="~/lib/jquery/dist/jquery.js/jquery.min.js"></script>
