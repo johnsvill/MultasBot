@@ -7,36 +7,40 @@ using Microsoft.AspNetCore.Mvc;
 using MultasTransito.Models;
 using MultasTransito.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Fabric.Query;
 
 namespace MultasTransito.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ApplicationDbContext dbContext;        
+        private readonly ApplicationDbContext dbContext;
+        private readonly ApplicationDbContext db = new ApplicationDbContext();        
 
+        //Inyección de dependencia
         public HomeController(ApplicationDbContext dbContext)
         {
             this.dbContext = dbContext;            
         }
-
-        private readonly ApplicationDbContext db = new ApplicationDbContext();
-
-        public IActionResult Index()
-        {
+         
+        public IActionResult Index() 
+        {            
             string[] NombreMunis = { "Guatemala", "Mixco", "Villa Nueva", "San José Pinula", "Fraijanes" };
             ViewBag.NombreMunis = NombreMunis;
             ViewBag.NombreMunisLenght = NombreMunis.Length;
-            /*ViewBag.Logo = "/images/BDG.png";
-            ViewBag.Favicon = "/favicon.ico";
-            ViwBag.AmilcarBot = "/images/amilcar bot.jpg";*/
+            IList<Vehiculo> vehiculosList = new List<Vehiculo>
+            {
+                new Vehiculo() { IdNit = 784512 },
+                new Vehiculo() { TipoPlaca = "P" },
+                new Vehiculo() { IdPlaca = 123456789 }
+            };
+            ViewData["DatosVehiculo"] = vehiculosList; 
 
             return View();
         }
-
+      
         public IActionResult About()
         {
             //ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 

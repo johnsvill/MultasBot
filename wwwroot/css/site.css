@@ -12,23 +12,18 @@ body {
     padding-right: 15px;
 }
 
-#Logo {
+.Logo {
     width: auto;
     height: 120px;
-    padding-top: 15px;
-    position:relative;   
-    margin-bottom: 50px;
-}
-
-#info-consulta{
-
+    padding-top: 10px;    
 }
 
 #amilcar-bot {
     width: 10px;
     height: 10px;
-    margin-right: 100px;
+    margin-right: 2500px;
     margin-top: 25px;
+    vertical-align: middle
 }
 /* Carousel */
 .carousel-caption p {
