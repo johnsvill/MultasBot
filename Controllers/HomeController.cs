@@ -29,11 +29,11 @@ namespace MultasTransito.Controllers
             ViewBag.NombreMunisLenght = NombreMunis.Length;
             IList<Vehiculo> vehiculosList = new List<Vehiculo>
             {
-                new Vehiculo() { IdNit = 784512 },
-                new Vehiculo() { TipoPlaca = "P" },
-                new Vehiculo() { IdPlaca = 123456789 }
+                new Vehiculo() { IdNit = 0 },
+                new Vehiculo() { TipoPlaca = "" },
+                new Vehiculo() { IdPlaca = 0 }
             };
-            ViewData["DatosVehiculo"] = vehiculosList; 
+            ViewData["DatosVehiculo"] = vehiculosList;            
 
             return View();
         }

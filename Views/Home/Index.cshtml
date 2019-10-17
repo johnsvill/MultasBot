@@ -10,47 +10,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
     <title>@ViewData["Amilcar Bot"] - Amilcar Bot</title>
 </head>
-<body>    
+<body>
     <form method="post">
-        <h2>Elije la municipalidad a consultar</h2>
+        <h2><strong>Elije la municipalidad a consultar</strong></h2>
         @for (var i = 0; i < @ViewBag.NombreMunisLenght; i++)
         {
-            <input name="Index" type="checkbox" value="@i" /> @ViewBag.NombreMunis[i]<br />
+            <input name="Index" id="checks" type="checkbox" value="@i" /> <strong>@ViewBag.NombreMunis[i]</strong> <br />
         }
-        <button>Validar</button>
-        <input type="radio" value="Seleccione todos" />
+        <div>
+            <button type="button" class="btn btn-primary"><strong>Validar</strong></button>
+        </div>
+        <div class="radio radio-info">            
+            <label class="custom-control-label" for="seleccioneTodos">
+                <input type="radio" class="custom-control-input" id="seleccioneTodos">
+                <strong>Seleccione todos</strong>
+            </label>
+        </div>
     </form>
-    <div>
-        <table border="1" cellspacing="4" cellpadding="4" id="info-consulta">
-            <thead>
-                <tr>
-                    <th width="150">Municipalidad</th>
-                    <th width="100">Tipo de placa</th>
-                    <th width="100">Número de placa</th>
-                    <th width="100">Nit</th>
-                    <th>Consultar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <input type="button" id="Search" value="Consultar" placeholder="Buscar...">
-                    </td>
-                </tr>
-            </tbody>
-            <tbody>
-                @foreach (var vh in ViewData["DatosVehiculo"] as IList<Vehiculo>)
-                {
-                    <tr>@vh.IdNit</tr>
-                    <tr>@vh.TipoPlaca</tr>
-                    <tr>@vh.IdPlaca</tr>
-                }
-            </tbody>
-        </table>
-    </div>        
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <table border="1" cellspacing="2" class="table" cellpadding="2" id="info-consulta">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Municipalidad</th>
+                        <th>Tipo de placa</th>
+                        <th>Número de placa</th>
+                        <th>Nit</th>
+                    </tr>
+                </thead>
+                <tbody id="td">
+                    @foreach (var vh in ViewData["DatosVehiculo"] as IList<Vehiculo>)
+                    {
+                        <tr>
+                            <td scope="col" width="50px"></td>
+                            <td scope="col" width="50px">@Html.DisplayFor(model => model.)</td>
+                            <td scope="col" width="100px">@vh.TipoPlaca</td>
+                            <td scope="col" width="100px">@vh.IdPlaca</td>
+                            <td width="50">
+                                <input type="button" class="btn btn-success btn-lg btn-block" 
+                                       id="Buscar" value="Buscar....">
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                @*@foreach (var vh in ViewData["DatosVehiculo"] as IList<Vehiculo>)
+        {
+            <tr>@vh.IdNit</tr>
+            <tr>@vh.TipoPlaca</tr>
+            <tr>@vh.IdPlaca</tr>
+        }*@
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </form>   
 </body>
 </html>

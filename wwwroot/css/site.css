@@ -5,6 +5,20 @@ body {
     padding-bottom: 20px;    
 }
 
+tbody {
+    border: black 2px solid;
+    border-collapse:separate;
+}
+
+.thead-dark {
+    border: black 2px solid;
+    height: 20px;
+}
+
+col {
+    border: 2px black solid;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -12,18 +26,23 @@ body {
     padding-right: 15px;
 }
 
-.Logo {
-    width: auto;
-    height: 120px;
-    padding-top: 10px;    
+.logo {
+    width: 600px;
+    height: 150px;
+    padding-top: 0px;
 }
 
-#amilcar-bot {
-    width: 10px;
-    height: 10px;
-    margin-right: 2500px;
-    margin-top: 25px;
-    vertical-align: middle
+#checks{
+    
+}
+
+.amilcar-bot {
+    width: 500px;
+    height: 500px;
+    padding-top: 20px;
+    float: right;
+    padding-bottom: 25px;
+    padding-right: 10px;
 }
 /* Carousel */
 .carousel-caption p {
