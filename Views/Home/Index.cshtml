@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Amilcar Bot"] - Amilcar Bot</title>
 </head>
 <body>
@@ -20,49 +20,52 @@
         <div>
             <button type="button" class="btn btn-primary"><strong>Validar</strong></button>
         </div>
-        <div class="radio radio-info">            
+        <div class="radio radio-info">
             <label class="custom-control-label" for="seleccioneTodos">
                 <input type="radio" class="custom-control-input" id="seleccioneTodos">
                 <strong>Seleccione todos</strong>
             </label>
         </div>
-    </form>
-    <form class="form-horizontal" role="form">
-        <div class="form-group">
-            <table border="1" cellspacing="2" class="table" cellpadding="2" id="info-consulta">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Municipalidad</th>
-                        <th>Tipo de placa</th>
-                        <th>Número de placa</th>
-                        <th>Nit</th>
-                    </tr>
-                </thead>
-                <tbody id="td">
-                    @foreach (var vh in ViewData["DatosVehiculo"] as IList<Vehiculo>)
-                    {
-                        <tr>
-                            <td scope="col" width="50px"></td>
-                            <td scope="col" width="50px">@Html.DisplayFor(model => model.)</td>
-                            <td scope="col" width="100px">@vh.TipoPlaca</td>
-                            <td scope="col" width="100px">@vh.IdPlaca</td>
-                            <td width="50">
-                                <input type="button" class="btn btn-success btn-lg btn-block" 
-                                       id="Buscar" value="Buscar....">
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-                @*@foreach (var vh in ViewData["DatosVehiculo"] as IList<Vehiculo>)
-        {
-            <tr>@vh.IdNit</tr>
-            <tr>@vh.TipoPlaca</tr>
-            <tr>@vh.IdPlaca</tr>
-        }*@
-                <tbody>
-                </tbody>
-            </table>
+    </form>    
+    <div class="row">
+        <div class="col-md-3 form-horizontal">
+            <form action="/Home/Index" method="post">
+                <br />
+                <input type="text" class="form-control" name="ingreseNit" placeholder="Ingrese Nit" required autofocus>
+                <br />
+                <input type="text" class="form-control" name="tipoPlaca" placeholder="Tipo de placa" required autofocus>
+                <br />
+                <input type="number" class="form-control" name="numeroPlaca" placeholder="Número de placa" required autofocus>
+                <br />
+                <button class="btn btn-success btn-lg btn-block" type="submit">
+                    <strong>Consultar</strong>
+                </button>
+            </form>
         </div>
-    </form>   
+        @* @using (Html.BeginForm("Index", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="col-md-3 form-horizontal">
+                <br />
+                @Html.TextBoxFor(x => x.IdNit,
+                   new { @class = "form-control", placeholder = "Ingrese Nit", autofocus = "autofocus" })
+                @Html.ValidationMessageFor(x => x.IdNit, null, new { @class = "text-danger" })
+                <br />
+                @Html.TextBoxFor(x => x.TipoPlaca,
+                   new { @class = "form-control", placeholder = "Tipo de placa" })
+                @Html.ValidationMessageFor(x => x.TipoPlaca, null, new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3 form-horizontal">
+                <br />
+                @Html.TextBoxFor(x => x.IdNit,
+                   new { @class = "form-control", placeholder = "Número de placa" })
+                @Html.ValidationMessageFor(m => m.IdNit, null, new { @class = "text-danger" })
+                <br />
+                <button class="btn btn-success btn-lg btn-block" type="submit">
+                    <strong>Consultar</strong>
+                </button>
+            </div>
+        }*@
+    </div>    
 </body>
 </html>

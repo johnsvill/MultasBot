@@ -7,15 +7,17 @@ using System.ComponentModel.DataAnnotations;
 namespace MultasTransito.Models
 {
     public class Vehiculo
-    {
+    {       
         [Key]
         public int IdPlaca { get; set; }
         [Required]
         public string Color { get; set; }
+        [Required(ErrorMessage = "Nit es requerido")]
         public int IdNit { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public int Año { get; set; }
+        [Required(ErrorMessage = "Nit es requerido")]
         public string TipoPlaca { get; set; }
-    }    
+    }     
 }

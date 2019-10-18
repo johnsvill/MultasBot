@@ -66,7 +66,7 @@ using MultasTransito.Models;
             WriteLiteral("\r\n<h2>Crear nuevos municipios</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(144, 49, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "46f23611afc24dd69f198a70011486aa", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bb5d4895c96c4230825a001d574cac63", async() => {
                 BeginContext(167, 22, true);
                 WriteLiteral("Ingrese nuevo registro");
                 EndContext();
@@ -176,7 +176,7 @@ using MultasTransito.Models;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1198, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "60ac0c4f094b4143abe65b1db35ce0c6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a23603c22a8d446b992d24ef9fec512c", async() => {
                 BeginContext(1256, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -211,7 +211,7 @@ using MultasTransito.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1284, 72, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b30a58a71273402bb84f06455ecbaea5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "66c15bd0825f419d9dc4cfd499552e0a", async() => {
                 BeginContext(1345, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -246,7 +246,7 @@ using MultasTransito.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1376, 70, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ebf20c82152142129a922e139851011c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ca052045f8624991ab5d9c4e7d085fcb", async() => {
                 BeginContext(1436, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

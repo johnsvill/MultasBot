@@ -15,6 +15,13 @@ tbody {
     height: 20px;
 }
 
+.btn:hover {
+    border: 2px solid #0099CC;
+    border-radius: 6px;
+    background-color: #008CBA;
+    color: white;
+}
+
 col {
     border: 2px black solid;
 }
@@ -32,10 +39,6 @@ col {
     padding-top: 0px;
 }
 
-#checks{
-    
-}
-
 .amilcar-bot {
     width: 500px;
     height: 500px;
@@ -44,6 +47,7 @@ col {
     padding-bottom: 25px;
     padding-right: 10px;
 }
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;

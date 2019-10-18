@@ -8,6 +8,7 @@ using MultasTransito.Models;
 using MultasTransito.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Fabric.Query;
+using Microsoft.AspNetCore.Http;
 
 namespace MultasTransito.Controllers
 {
@@ -22,22 +23,38 @@ namespace MultasTransito.Controllers
             this.dbContext = dbContext;            
         }
          
-        public IActionResult Index() 
-        {            
+        [HttpPost]
+        public IActionResult Index() //string nit, string tipoPlaca, string numeroPlaca
+        {
+            /*Vehiculo vh = new Vehiculo
+            {
+                IdNit = Convert.ToInt32(nit),
+                TipoPlaca = tipoPlaca,
+                IdPlaca = Convert.ToInt32(numeroPlaca)
+            };*/
             string[] NombreMunis = { "Guatemala", "Mixco", "Villa Nueva", "San José Pinula", "Fraijanes" };
             ViewBag.NombreMunis = NombreMunis;
-            ViewBag.NombreMunisLenght = NombreMunis.Length;
-            IList<Vehiculo> vehiculosList = new List<Vehiculo>
+            ViewBag.NombreMunisLenght = NombreMunis.Length;                     
+            return View();
+        }
+
+       /* public ActionResult Form(FormCollection formCollection)
+        {
+            string _Nit = formCollection["Nit"];
+            string _TipoPlaca = formCollection["Tipo de placa"];
+            string _NumeroPlaca = formCollection["Numero de placa"];
+
+            return View("Form");
+        }*/
+
+        /*IList<Vehiculo> vehiculosList = new List<Vehiculo>
             {
                 new Vehiculo() { IdNit = 0 },
                 new Vehiculo() { TipoPlaca = "" },
                 new Vehiculo() { IdPlaca = 0 }
             };
-            ViewData["DatosVehiculo"] = vehiculosList;            
+            ViewData["DatosVehiculo"] = vehiculosList;   */
 
-            return View();
-        }
-      
         public IActionResult About()
         {
             //ViewData["Message"] = "Your application description page.";
