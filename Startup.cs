@@ -60,6 +60,7 @@ namespace MultasTransito
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseDefaultFiles();
 
             app.UseAuthentication();
 

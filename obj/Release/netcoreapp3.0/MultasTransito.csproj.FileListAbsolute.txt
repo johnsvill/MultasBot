@@ -1,0 +1,4 @@
+C:\Users\BDGSA\Documents\Proyectos VS\MultasTransito\obj\Release\netcoreapp3.0\MultasTransito.csprojAssemblyReference.cache
+C:\Users\BDGSA\Documents\Proyectos VS\MultasTransito\obj\Release\netcoreapp3.0\MultasTransito.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\BDGSA\Documents\Proyectos VS\MultasTransito\obj\Release\netcoreapp3.0\MultasTransito.AssemblyInfoInputs.cache
+C:\Users\BDGSA\Documents\Proyectos VS\MultasTransito\obj\Release\netcoreapp3.0\MultasTransito.AssemblyInfo.cs

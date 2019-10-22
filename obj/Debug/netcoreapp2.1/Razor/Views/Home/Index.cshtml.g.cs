@@ -68,7 +68,7 @@ using MultasTransito.Data;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html>\r\n");
             EndContext();
             BeginContext(177, 182, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70a22876046d4f5f82a23369d2f2c245", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3b51835ba96741e48234a0c08f4a87aa", async() => {
                 BeginContext(183, 121, true);
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>");
                 EndContext();
@@ -98,12 +98,12 @@ using MultasTransito.Data;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(361, 2788, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b4dd68bc388f419d911815f9445d8625", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8721a479fba9488796a02a106e9b3ad0", async() => {
                 BeginContext(367, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(373, 724, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1196ea87c83f42d9bb0e0f9387e914fa", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d2bc6fb5ecf4bcd982a0f4b099b7848", async() => {
                     BeginContext(393, 72, true);
                     WriteLiteral("\r\n        <h2><strong>Elije la municipalidad a consultar</strong></h2>\r\n");
                     EndContext();
@@ -173,7 +173,7 @@ WriteAttributeValue("", 606, i, 606, 2, false);
                 WriteLiteral("    \r\n    <div class=\"row\">\r\n        <div class=\"col-md-3 form-horizontal\">\r\n            ");
                 EndContext();
                 BeginContext(1186, 685, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "05cdd667371b4373b5999e6fc420efa1", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6251332129354050944a6588d4ae97ff", async() => {
                     BeginContext(1227, 637, true);
                     WriteLiteral(@"
                 <br />

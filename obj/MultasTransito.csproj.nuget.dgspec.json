@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[2.1.2, )"
             },
+            "Microsoft.Build.Tasks.Core": {
+              "target": "Package",
+              "version": "[16.3.0, )"
+            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -67,10 +71,6 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[2.1.9, )"
-            },
-            "PagedList.Mvc": {
-              "target": "Package",
-              "version": "[4.5.0, )"
             }
           },
           "imports": [
