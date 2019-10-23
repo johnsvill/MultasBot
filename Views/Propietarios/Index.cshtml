@@ -49,9 +49,9 @@
                 @Html.DisplayFor(modelItem => item.Correo)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdNit">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdNit">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdNit">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdNit" class="btn btn-success">Editar</a> 
+                <a asp-action="Details" asp-route-id="@item.IdNit" class="btn btn-primary">Detalles</a> 
+                <a asp-action="Delete" asp-route-id="@item.IdNit" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>}
     </tbody>

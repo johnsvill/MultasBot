@@ -23,8 +23,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IsChecked)
-            </th>
-            <th></th>
+            </th>            
         </tr>
     </thead>
     <tbody>
@@ -43,9 +42,9 @@
                 @Html.DisplayFor(modelItem => item.IsChecked)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdMunicipalidad">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdMunicipalidad">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdMunicipalidad">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdMunicipalidad" class="btn btn-success">Editar</a>
+                <a asp-action="Details" asp-route-id="@item.IdMunicipalidad" class="btn btn-primary">Detalles</a>
+                <a asp-action="Delete" asp-route-id="@item.IdMunicipalidad" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>
         }

@@ -8,8 +8,7 @@
 
 <h3>¿Está seguro que desea eliminar este registro?</h3>
 <div>
-    <h4>Vehiculo</h4>
-    <hr />
+    <h4>Vehiculo</h4>    
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Color)
@@ -51,7 +50,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="IdPlaca" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <input type="button" value="Eliminar" class="btn btn-danger" /> 
         <a asp-action="Index">Regresar a ingresar un nuevo registro</a>
     </form>
 </div>

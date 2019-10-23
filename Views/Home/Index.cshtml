@@ -15,48 +15,40 @@
         <h2>Elije la municipalidad a consultar</h2>
         @for (var i = 0; i < @ViewBag.NombreMunisLenght; i++)
         {
-            <input name="Index" type="checkbox" value="@i" /> @ViewBag.NombreMunis[i]<br />
+            <input name="Index" id="checks" type="checkbox" value="@i" /> <strong>@ViewBag.NombreMunis[i]</strong> <br />
         }
-        <button>Validar</button>
-        <input type="radio" value="Seleccione todos" />
+        <div>
+            <button type="button" class="btn btn-primary"><strong>Validar</strong></button>
+        </div>
     </form>
-    <div>
-        <table border="1" cellspacing="4" cellpadding="4" id="info-consulta">
-            <thead>               
-                <tr>
-                    <th width="150">Municipalidad</th>
-                    <th width="100">Tipo de placa</th>
-                    <th width="100">Número de placa</th>
-                    <th width="100">Nit</th>
-                    <th>Consultar</th>
-                </tr>                
-            </thead>           
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <input type="button" id="Search" value="Consultar" placeholder="Buscar...">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>    
-    <script src="~/lib/jquery/dist/jquery.js/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            function contains(text_one, text_twoo) {
-                return text_one.toLowerCase().indexOf(text_twoo.toLowerCase()) != -1;
-            }
-            $("#Search").keyup(function () {
-                var searchText = $(this).val();
-                $("#Search").each(function () {
-                    this.toggle(contains($(this).text(), searchText));
+    <div class="row">
+        <div class="col-md-3 form-horizontal">
+            <form action="/Home/Index" method="post">
+                <br />
+                <input type="text" class="form-control" name="ingreseNit" placeholder="Ingrese Nit" required autofocus>
+                <br />
+                <input type="text" class="form-control" name="tipoPlaca" placeholder="Tipo de placa" required autofocus>
+                <br />
+                <input type="number" class="form-control" name="numeroPlaca" placeholder="Número de placa" required autofocus>
+                <br />
+                <button class="btn btn-success btn-lg btn-block" type="submit">
+                    <strong>Consultar</strong>
+                </button>
+            </form>
+        </div>
+        <script src="~/lib/jquery/dist/jquery.js/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                function contains(text_one, text_twoo) {
+                    return text_one.toLowerCase().indexOf(text_twoo.toLowerCase()) != -1;
+                }
+                $("#Search").keyup(function () {
+                    var searchText = $(this).val();
+                    $("#Search").each(function () {
+                        this.toggle(contains($(this).text(), searchText));
+                    });
                 });
             });
-        });
-    </script>
+        </script>
 </body>
 </html>

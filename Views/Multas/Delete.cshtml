@@ -8,8 +8,7 @@
 
 <h3>¿Desea eliminar este registro?</h3>
 <div>
-    <h4>Multas</h4>
-    <hr />
+    <h4>Multas</h4>    
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.IdMunicipalidad)
@@ -39,7 +38,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="IdMulta" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Regresar a ingresar nuevo registro</a>
+        <input type="button" value="Eliminar" class="btn btn-danger"/> 
+        <a asp-action="Index">Ingresar nuevo registro</a>
     </form>
 </div>

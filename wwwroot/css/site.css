@@ -12,19 +12,52 @@ body {
     padding-right: 15px;
 }
 
+tbody {
+    border: black 2px solid;
+    border-collapse: separate;
+}
+
+.thead-dark {
+    border: black 2px solid;
+    height: 20px;
+}
+
+.btn:hover {
+    border: 2px solid #0099CC;
+    border-radius: 6px;
+    background-color: #008CBA;
+    color: white;
+}
+
+col {
+    border: 2px black solid;
+}
+
+.logo {
+    width: 600px;
+    height: 150px;
+    padding-top: 0px;
+}
+
+.amilcar-bot {
+    width: 400px;
+    height: 500px;
+    padding-top: 20px;
+    float: right;
+    padding-bottom: 25px;
+    padding-right: 10px;
+}
+
+.main-footer{
+    
+}
+
 .Logo {
     width: auto;
     height: 120px;
-    padding-top: 10px;    
+    padding-top: 10px;
 }
 
-#amilcar-bot {
-    width: 10px;
-    height: 10px;
-    margin-right: 2500px;
-    margin-top: 25px;
-    vertical-align: middle
-}
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;

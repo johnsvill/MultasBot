@@ -23,30 +23,31 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Idnit)
-            </th>
-            <th></th>
+            </th>            
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdMunicipalidad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdPlaca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Idnit)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdMulta">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdMulta">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdMulta">Delete</a>
-            </td>
-        </tr>}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdMunicipalidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdPlaca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Idnit)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdMulta" class="btn btn-success">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.IdMulta" class="btn btn-primary">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdMulta" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+}
     </tbody>
 </table>

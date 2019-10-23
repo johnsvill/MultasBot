@@ -7,8 +7,7 @@
 <h2>Detalles</h2>
 
 <div>
-    <h4>Municipios</h4>
-    <hr />
+    <h4>Municipios</h4>    
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -37,6 +36,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.IdMunicipalidad">Editar</a> |
-    <a asp-action="Index">Regresar a ingresar nuevo registro</a>
+    <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model.IdMunicipalidad">Editar</a> 
+    <a asp-action="Index">Ingresar nuevo registro</a>
 </div>

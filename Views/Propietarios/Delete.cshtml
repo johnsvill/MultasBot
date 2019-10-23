@@ -8,8 +8,7 @@
 
 <h3>¿Está seguro que desea eliminar el registro?</h3>
 <div>
-    <h4>Propietario</h4>
-    <hr />
+    <h4>Propietario</h4>    
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -41,11 +40,10 @@
         <dd>
             @Html.DisplayFor(model => model.Correo)
         </dd>
-    </dl>
-    
+    </dl>    
     <form asp-action="Delete">
         <input type="hidden" asp-for="IdNit" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <input type="button" value="Eliminar" class="btn btn-danger" /> 
         <a asp-action="Index">Regresar a ingresar nuevo registro</a>
     </form>
 </div>
