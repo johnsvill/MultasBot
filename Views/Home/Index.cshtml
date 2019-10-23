@@ -19,6 +19,8 @@
         }
         <div>
             <button type="button" class="btn btn-primary"><strong>Validar</strong></button>
+            <input type="radio" class="text-right"/>
+            <strong>Seleccione todos</strong>
         </div>
     </form>
     <div class="row">
@@ -31,9 +33,9 @@
                 <br />
                 <input type="number" class="form-control" name="numeroPlaca" placeholder="Número de placa" required autofocus>
                 <br />
-                <button class="btn btn-success btn-lg btn-block" type="submit">
+                <button class="btn btn-success btn-lg btn-block" type="button">
                     <strong>Consultar</strong>
-                </button>
+                </button>               
             </form>
         </div>
         <script src="~/lib/jquery/dist/jquery.js/jquery.min.js"></script>
@@ -50,5 +52,6 @@
                 });
             });
         </script>
+    </div>
 </body>
 </html>

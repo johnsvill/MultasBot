@@ -2,7 +2,7 @@
 for details on configuring this project to bundle and minify static web assets. */
 body {
     padding-top: 50px;
-    padding-bottom: 20px;    
+    padding-bottom: 20px;
 }
 
 /* Wrapping element */
@@ -11,6 +11,24 @@ body {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.navbar-nav li:hover {
+    background-color: red;    
+}
+
+.navbar-nav li.active {
+    background-color: red !important;
+}
+
+    .navbar-nav li.active a {
+        background-color: rgba(0,0,0,0) !important;        
+    }
+
+
+    .footer-copyright {
+        background: black;
+        width: auto;
+    }
 
 tbody {
     border: black 2px solid;
@@ -39,6 +57,13 @@ col {
     padding-top: 0px;
 }
 
+#logo-footer {
+    float: left;
+    height: 40px;
+    width: 125px;
+    padding-left: 25px;
+}
+
 .amilcar-bot {
     width: 400px;
     height: 500px;
@@ -48,8 +73,7 @@ col {
     padding-right: 10px;
 }
 
-.main-footer{
-    
+.main-footer {
 }
 
 .Logo {

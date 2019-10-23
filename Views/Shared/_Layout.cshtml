@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
     <link rel="icon" type="image/x-icon" href="~/images/favicon.png">
-    <title>@ViewData["Amilcar Bot"] - AMILCAR BOT</title>
+    <title class="glyphicon-bold">@ViewData["Amilcar BOT"]  AMILCAR BOT</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -23,6 +23,22 @@
         <img src="~/images/amilcar bot.png" class="amilcar-bot" />
     </div>
     <nav class="navbar navbar-inverse navbar-fixed-top">
+        @{
+            var controllerName = string.Empty;
+            object controllerObj;
+            var actionName = string.Empty;
+            object actionObj;
+
+            if (ViewContext.RouteData.Values.TryGetValue("controller", out controllerObj))
+            {
+                controllerName = controllerObj.ToString();
+            }
+
+            if (ViewContext.RouteData.Values.TryGetValue("action", out actionObj))
+            {
+                actionName = actionObj.ToString();
+            }
+        }
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -31,14 +47,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Amilcar Bot</a>
+                <ul>
+                    <li class=" @if (controllerName == "Index") {  <text> active </text>} ">
+                        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Amilcar BOT</a>
+                    </li>
+                </ul>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Municipios" asp-action="Index">Municipios</a></li>
-                    <li><a asp-area="" asp-controller="Multas" asp-action="Index">Multas</a></li>
-                    <li><a asp-area="" asp-controller="Vehiculos" asp-action="Index">Vehiculo</a></li>
-                    <li><a asp-area="" asp-controller="Propietarios" asp-action="Index">Propietario</a></li>
+                    <li class=" @if (controllerName == "Municipios") {  <text> active </text>} ">
+                        <a asp-area="" asp-controller="Municipios" asp-action="Index">Municipios</a>
+                    </li>
+                    <li class=" @if (controllerName == "Multas") {  <text> active </text>} ">
+                        <a asp-area="" asp-controller="Multas" asp-action="Index">Multas</a>
+                    </li>
+                    <li class=" @if (controllerName == "Vehiculos") {  <text> active </text>} ">
+                        <a asp-area="" asp-controller="Vehiculos" asp-action="Index">Vehiculo</a>
+                    </li>
+                    <li class=" @if (controllerName == "Propietarios") {  <text> active </text>} ">
+                        <a asp-area="" asp-controller="Propietarios" asp-action="Index">Propietario</a>
+                    </li>
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
@@ -66,24 +94,46 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-
     @RenderSection("Scripts", required: false)
     <div class="container body-content">
         @RenderBody()
         <hr />
     </div>
-    <footer class="main-footer">
-        <p>
-            &copy; <strong>@DateTime.Now.ToString("dd-MM-yyyy")</strong> -- Multas de Tránsito
-            || Todos los derechos reservados
-        </p>
-        <div class="container container--flex">
-            <h4 class="column__title"><strong>¿Por qué contratarnos?</strong></h4>
-            <p class="column__txt">
-                Porque creamos diferentes herramientas informáticas para su negocio,
-                con tecnologías de vanguardia que garantizan su óptimo funcionamiento y estabilidad.
+    <footer class="page-footer font-small blue pt-4">        
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left">
+            <!-- Grid row -->
+            <div>
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <h5 class="text-uppercase"><strong>¿Por qué contratarnos?</strong></h5>
+                    <p>
+                        Porque creamos diferentes herramientas informáticas para su negocio,
+                        con tecnologías de vanguardia que garantizan su óptimo funcionamiento y estabilidad.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            <img src="~/images/BDG.png" id="logo-footer" />
+            <style>
+                #date {
+                    color: #FF0000;
+                }
+            </style>
+            <strong id="date">&copy; @DateTime.Now.ToString("dd-MM-yyyy")</strong>
+            <a href="http://www.bdgsa.net/es/" target="_blank">www.bdgsa.net</a>
+            <style>
+                #derechos {
+                    color: #FFFFFF;
+                }
+            </style>
+            <p id="derechos">
+                Amilcar BOT
+                || Todos los derechos reservados
             </p>
         </div>
+        <!-- Copyright -->
     </footer>
 </body>
 
