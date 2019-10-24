@@ -13,7 +13,7 @@ body {
 }
 
 .navbar-nav li:hover {
-    background-color: red;    
+    background-color: red;
 }
 
 .navbar-nav li.active {
@@ -23,7 +23,6 @@ body {
     .navbar-nav li.active a {
         background-color: rgba(0,0,0,0) !important;        
     }
-
 
     .footer-copyright {
         background: black;
@@ -71,9 +70,6 @@ col {
     float: right;
     padding-bottom: 25px;
     padding-right: 10px;
-}
-
-.main-footer {
 }
 
 .Logo {

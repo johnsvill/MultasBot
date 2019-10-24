@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Crear">
+        <form asp-action="Create" class="form-group-sm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="IdMunicipalidad" class="control-label"></label>
@@ -40,7 +40,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Regresar a ingresar un nuevo registro</a>
+    <a asp-action="Index">Ingresar un nuevo registro</a>
 </div>
 
 @section Scripts {

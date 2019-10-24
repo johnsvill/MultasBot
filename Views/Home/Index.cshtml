@@ -7,10 +7,10 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Amilcar Bot"] - Amilcar Bot</title>
 </head>
-<body>    
+<body>
     <form method="post">
         <h2>Elije la municipalidad a consultar</h2>
         @for (var i = 0; i < @ViewBag.NombreMunisLenght; i++)
@@ -19,23 +19,26 @@
         }
         <div>
             <button type="button" class="btn btn-primary"><strong>Validar</strong></button>
-            <input type="radio" class="text-right"/>
-            <strong>Seleccione todos</strong>
+            <input type="radio" class="text-right" />
+            <label><strong>Seleccione todos</strong></label> 
         </div>
     </form>
     <div class="row">
         <div class="col-md-3 form-horizontal">
             <form action="/Home/Index" method="post">
-                <br />
-                <input type="text" class="form-control" name="ingreseNit" placeholder="Ingrese Nit" required autofocus>
-                <br />
-                <input type="text" class="form-control" name="tipoPlaca" placeholder="Tipo de placa" required autofocus>
-                <br />
-                <input type="number" class="form-control" name="numeroPlaca" placeholder="Número de placa" required autofocus>
-                <br />
+                @using (Html.BeginForm())
+                {
+                    <br />
+                    <input type="text" class="form-control" name="ingreseNit" placeholder="Ingrese Nit" required autofocus>
+                    <br />
+                    <input type="text" class="form-control" name="tipoPlaca" placeholder="Tipo de placa" required autofocus>
+                    <br />
+                    <input type="number" class="form-control" name="numeroPlaca" placeholder="Número de placa" required autofocus>
+                    <br />
+                }
                 <button class="btn btn-success btn-lg btn-block" type="button">
                     <strong>Consultar</strong>
-                </button>               
+                </button>
             </form>
         </div>
         <script src="~/lib/jquery/dist/jquery.js/jquery.min.js"></script>

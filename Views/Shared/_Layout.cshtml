@@ -23,23 +23,17 @@
         <img src="~/images/amilcar bot.png" class="amilcar-bot" />
     </div>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        @{
-            var controllerName = string.Empty;
-            object controllerObj;
-            var actionName = string.Empty;
-            object actionObj;
-
-            if (ViewContext.RouteData.Values.TryGetValue("controller", out controllerObj))
-            {
-                controllerName = controllerObj.ToString();
-            }
-
-            if (ViewContext.RouteData.Values.TryGetValue("action", out actionObj))
-            {
-                actionName = actionObj.ToString();
-            }
-        }
+       
         <div class="container">
+            @{
+                var controllerName = string.Empty;
+                object controllerObj;
+
+                if (ViewContext.RouteData.Values.TryGetValue("controller", out controllerObj))
+                {
+                    controllerName = controllerObj.ToString();
+                }
+            }
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only"></span>
@@ -48,7 +42,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <ul>
-                    <li class=" @if (controllerName == "Index") {  <text> active </text>} ">
+                    <li class=" @if (controllerName == "Home") {  <text> active </text>} ">
                         <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Amilcar BOT</a>
                     </li>
                 </ul>
@@ -123,6 +117,7 @@
             </style>
             <strong id="date">&copy; @DateTime.Now.ToString("dd-MM-yyyy")</strong>
             <a href="http://www.bdgsa.net/es/" target="_blank">www.bdgsa.net</a>
+            <strong id="derechos">Ventas:</strong> <a href="mailto:ventas@bdgsa.net">ventas@bdgsa.net</a><br />
             <style>
                 #derechos {
                     color: #FFFFFF;

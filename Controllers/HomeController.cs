@@ -27,13 +27,13 @@ namespace MultasTransito.Controllers
             string[] NombreMunis = { "Guatemala", "Mixco", "Villa Nueva", "San José Pinula", "Fraijanes" };
             ViewBag.NombreMunis = NombreMunis;
             ViewBag.NombreMunisLenght = NombreMunis.Length;
-            IList<Vehiculo> vehiculosList = new List<Vehiculo>
+            /*IList<Vehiculo> vehiculosList = new List<Vehiculo>
             {
                 new Vehiculo() { IdNit = 784512 },
                 new Vehiculo() { TipoPlaca = "P" },
                 new Vehiculo() { IdPlaca = 123456789 }
             };
-            ViewData["DatosVehiculo"] = vehiculosList; 
+            ViewData["DatosVehiculo"] = vehiculosList;*/ 
 
             return View();
         }

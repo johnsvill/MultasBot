@@ -24,7 +24,7 @@ namespace MultasTransito.Controllers
         public async Task<IActionResult> Index()
         {
             
-            return View("Index", await _context.Municipios.ToListAsync());
+            return View(await _context.Municipios.ToListAsync());
         }
 
         // GET: Municipios/Details/5
