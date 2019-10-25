@@ -5,18 +5,25 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home",
+    <authentication mode="Forms">
+        <form name=".ASPXAUTH" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home",
                                                new { area = "" })" method="post" id="logoutForm" class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Bienvenido
-                                                                    @UserManager.GetUserName(User)!</a>
-            </li>
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Cerrar sesión</button>
-            </li>
-        </ul>
-    </form>
+            <credentials passwordFormat="SHA1">
+                <user name="User" password="encrypt-pass" />
+            </credentials>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                        Bienvenido
+                        @UserManager.GetUserName(User)!
+                    </a>
+                </li>
+                <li>
+                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Cerrar sesión</button>
+                </li>
+            </ul>
+        </form>
+    </authentication>   
 }
 else
 {
@@ -31,7 +38,7 @@ else
         }
     }
     <li class=" @if (actionName == "") {  <text> active </text>} ">
-        <a asp-area="Identity" asp-page="/Account/Register">Registrarse</a>
+        <a asp-area="Identity" asp-page="/Account/Register">Registrarse</a> 
     </li>
     <li class=" @if (actionName == "") {  <text> active </text>} ">
         <a asp-area="Identity" asp-page="/Account/Login">Login</a>
