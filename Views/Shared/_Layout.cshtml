@@ -34,14 +34,14 @@
                     controllerName = controllerObj.ToString();
                 }
             }
-            <div class="navbar-header">
+            <div>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <ul>
+                <ul class="navbar-nav">
                     <li class=" @if (controllerName == "Home") {  <text> active </text>} ">
                         <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Amilcar BOT</a>
                     </li>

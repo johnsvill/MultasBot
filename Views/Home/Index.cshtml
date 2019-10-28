@@ -15,7 +15,8 @@
         <h2>Elije la municipalidad a consultar</h2>
         @for (var i = 0; i < @ViewBag.NombreMunisLenght; i++)
         {
-            <input name="Index" id="checks" type="checkbox" value="@i" /> <strong>@ViewBag.NombreMunis[i]</strong> <br />
+            <input name="Index" id="checks" type="checkbox" value="@i" /> 
+            <strong>@ViewBag.NombreMunis[i]</strong> <br />
         }
         <div>
             <button type="button" class="btn btn-primary"><strong>Validar</strong></button>

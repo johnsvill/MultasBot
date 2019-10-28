@@ -13,21 +13,21 @@ body {
 }
 
 .navbar-nav li:hover {
-    background-color: red;
+    background-color: #A51B0B;
 }
 
 .navbar-nav li.active {
-    background-color: red !important;
+    background-color: #A51B0B !important;
 }
 
     .navbar-nav li.active a {
-        background-color: rgba(0,0,0,0) !important;        
+        background-color: rgba(0,0,0,0) !important;
     }
 
-    .footer-copyright {
-        background: black;
-        width: auto;
-    }
+.footer-copyright {
+    background: black;
+    width: auto;
+}
 
 .page-footer {
     margin-top: 30px;

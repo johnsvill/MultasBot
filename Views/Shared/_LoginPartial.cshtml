@@ -15,7 +15,7 @@
                 <li>
                     <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
                         Bienvenido
-                        @UserManager.GetUserName(User)!
+                        @UserManager.GetUserName(User)! 
                     </a>
                 </li>
                 <li>
@@ -35,7 +35,7 @@ else
         if (ViewContext.RouteData.Values.TryGetValue("action", out actionObj))
         {
             actionName = actionObj.ToString();
-        }
+        } 
     }
     <li class=" @if (actionName == "") {  <text> active </text>} ">
         <a asp-area="Identity" asp-page="/Account/Register">Registrarse</a> 
