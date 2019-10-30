@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MultasTransito.Data;
 using MultasTransito.Models;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MultasTransito.Controllers
 {
@@ -18,13 +16,19 @@ namespace MultasTransito.Controllers
         public MunicipiosController(ApplicationDbContext context)
         {
             _context = context;
-        }       
-        
+        }
+
         // GET: Municipios
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([FromServices] SignInManager<IdentityUser> signInManager)
         {
-            
-            return View(await _context.Municipios.ToListAsync());
+            if(signInManager.IsSignedIn(User))
+            {
+                return View(await _context.Municipios.ToListAsync());
+            }
+            else
+            {
+                return PartialView("_LoginPartial");
+            }
         }
 
         // GET: Municipios/Details/5
@@ -83,7 +87,7 @@ namespace MultasTransito.Controllers
             catch (DbUpdateConcurrencyException)
             {
 
-            }           
+            }
             return View(municipios);
         }
 

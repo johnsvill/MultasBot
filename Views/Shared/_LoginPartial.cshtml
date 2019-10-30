@@ -1,47 +1,54 @@
-@using Microsoft.AspNetCore.Identity
+ï»¿@using Microsoft.AspNetCore.Identity
+@using System.Web;
 
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
-{
+{    
     <authentication mode="Forms">
         <form name=".ASPXAUTH" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home",
-                                               new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+                                                       new { area = "" })" method="post" id="logoutForm" class="navbar-right">            
             <credentials passwordFormat="SHA1">
                 <user name="User" password="encrypt-pass" />
             </credentials>
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
-                        Bienvenido
-                        @UserManager.GetUserName(User)! 
+                        <strong>
+                            BIENVENIDO
+                        </strong> 
+                        @UserManager.GetUserName(User)!
                     </a>
                 </li>
-                <li>
-                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Cerrar sesión</button>
+                <li>                    
+                    <button type="submit" class="btn btn-link navbar-btn navbar-link">
+                        <strong>
+                            Cerrar sesiï¿½n
+                        </strong>
+                    </button>
                 </li>
             </ul>
         </form>
-    </authentication>   
+    </authentication>
 }
 else
 {
-<ul class="nav navbar-nav navbar-right">
-    @{        
-        var actionName = string.Empty;
-        object actionObj;
-    
-        if (ViewContext.RouteData.Values.TryGetValue("action", out actionObj))
-        {
-            actionName = actionObj.ToString();
-        } 
-    }
-    <li class=" @if (actionName == "") {  <text> active </text>} ">
-        <a asp-area="Identity" asp-page="/Account/Register">Registrarse</a> 
-    </li>
-    <li class=" @if (actionName == "") {  <text> active </text>} ">
-        <a asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-</ul>
+    <ul class="nav navbar-nav navbar-right">
+        @{
+            var actionName = string.Empty;
+            object actionObj;
+
+            if (ViewContext.RouteData.Values.TryGetValue("action", out actionObj))
+            {
+                actionName = actionObj.ToString();
+            }
+        }
+        <li class=" @if (actionName == "") {  <text> active </text>} ">
+            <a asp-area="Identity" asp-page="/Account/Register">Registrarse</a>
+        </li>
+        <li class=" @if (actionName == "") {  <text> active </text>} ">
+            <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    </ul>
 }

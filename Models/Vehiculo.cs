@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace MultasTransito.Models
 {
@@ -17,5 +13,5 @@ namespace MultasTransito.Models
         public string Modelo { get; set; }
         public int Año { get; set; }
         public string TipoPlaca { get; set; }
-    }    
+    }
 }

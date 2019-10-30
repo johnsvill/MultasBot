@@ -1,5 +1,3 @@
-using System;
-
 namespace MultasTransito.Models
 {
     public class ErrorViewModel

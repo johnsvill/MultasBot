@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MultasTransito.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Identity.UI.Services;//IEmailSender
+using MultasTransito.Data;
+using System;
 
 namespace MultasTransito
 {
@@ -39,8 +34,8 @@ namespace MultasTransito
                 options.UseSqlServer(
                      Configuration.GetConnectionString("DefaultConnection")));
             //services.AddIdentity<IdentityUser, IdentityRole>()
-                services.AddDefaultIdentity<IdentityUser>()
-               .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity<IdentityUser>()
+           .AddEntityFrameworkStores<ApplicationDbContext>();
             //.AddDefaultTokenProviders();
 
             /*services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
@@ -60,7 +55,8 @@ namespace MultasTransito
 
             //services.AddSingleton<IEmailSender, EmailSender>();
 
-            services.Configure<IdentityOptions>(options => {
+            services.Configure<IdentityOptions>(options =>
+            {
 
                 //Configuración de contraseña
                 options.Password.RequireDigit = true;
@@ -81,14 +77,15 @@ namespace MultasTransito
                 options.User.RequireUniqueEmail = false;
             });
 
-            services.ConfigureApplicationCookie(options => {
+            services.ConfigureApplicationCookie(options =>
+            {
                 //Cookie settings
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
                 options.LoginPath = "/Identity/Account/Login";
                 options.AccessDeniedPath = "/Identity/Account/AccessDenied";
-                options.SlidingExpiration = true;                
+                options.SlidingExpiration = true;
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -111,14 +108,14 @@ namespace MultasTransito
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseAuthentication();            
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-            });            
+            });
         }
     }
 }
