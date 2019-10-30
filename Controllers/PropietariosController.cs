@@ -54,9 +54,7 @@ namespace MultasTransito.Controllers
             return View();
         }
 
-        // POST: Propietarios/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdNit,Nombre,Direccion,Licencia,Telefono,Email")] Propietario propietario)
@@ -86,9 +84,7 @@ namespace MultasTransito.Controllers
             return View(propietario);
         }
 
-        // POST: Propietarios/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdNit,Nombre,Direccion,Licencia,Telefono,Email")] Propietario propietario)

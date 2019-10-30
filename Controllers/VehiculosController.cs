@@ -54,9 +54,7 @@ namespace MultasTransito.Controllers
             return View();
         }
 
-        // POST: Vehiculos/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdPlaca,Color,IdNit,Marca,Modelo,Año,TipoPlaca")] Vehiculo vehiculo)
@@ -86,9 +84,7 @@ namespace MultasTransito.Controllers
             return View(vehiculo);
         }
 
-        // POST: Vehiculos/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdPlaca,Color,IdNit,Marca,Modelo,Año,TipoPlaca")] Vehiculo vehiculo)

@@ -55,3 +55,4 @@ C:\Users\BDGSA\Documents\Proyectos VS\MultasTransito\obj\Debug\netcoreapp2.1\Mul
 C:\Users\BDGSA\Documents\Proyectos VS\MultasTransito\obj\Debug\netcoreapp2.1\MultasTransito.csproj.CopyComplete
 C:\Users\BDGSA\Documents\Proyectos VS\MultasTransito\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\BDGSA\Documents\Proyectos VS\MultasTransito\obj\Debug\netcoreapp2.1\MultasTransito.csprojAssemblyReference.cache
+C:\Users\BDGSA\Documents\Proyectos VS\MultasTransito\obj\Debug\netcoreapp2.1\Razor\Views\Home\Search.cshtml.g.cs

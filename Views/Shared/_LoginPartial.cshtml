@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li>                    
-                    <button type="submit" class="btn btn-link navbar-btn navbar-link">
+                    <button type="submit" class="btn btn-link navbar-btn btn-block">
                         <strong>
                             Cerrar sesi�n
                         </strong>
@@ -44,10 +44,10 @@ else
                 actionName = actionObj.ToString();
             }
         }
-        <li class=" @if (actionName == "") {  <text> active </text>} ">
+        <li id="login" class=" @if (actionName == "") {  <text> active </text>} ">
             <a asp-area="Identity" asp-page="/Account/Register">Registrarse</a>
         </li>
-        <li class=" @if (actionName == "") {  <text> active </text>} ">
+        <li id="login" class=" @if (actionName == "") {  <text> active </text>} ">
             <a asp-area="Identity" asp-page="/Account/Login">Login</a>
         </li>
     </ul>

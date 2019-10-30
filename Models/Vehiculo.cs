@@ -13,5 +13,6 @@ namespace MultasTransito.Models
         public string Modelo { get; set; }
         public int Año { get; set; }
         public string TipoPlaca { get; set; }
+        public virtual Multas Multas { get; set; }
     }
 }
