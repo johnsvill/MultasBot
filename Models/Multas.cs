@@ -12,6 +12,7 @@ namespace MultasTransito.Models
         public string Descripcion { get; set; }
         public int IdPlaca { get; set; }
         public int Idnit { get; set; }
+        public decimal Monto { get; set; }
         public List<Vehiculo> Vehiculos { get; set; } 
     }
 }

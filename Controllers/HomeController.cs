@@ -37,40 +37,51 @@ namespace MultasTransito.Controllers
             }                        
         }
 
-        public IActionResult Search(string searchString)
-        {           
+      public IActionResult Search(string searchString)
+      {           
             using (ApplicationDbContext dbContext = new ApplicationDbContext())
             {
-                //List<Propietario> propietarios = dbContext.Propietarios.ToList();
+                List<Propietario> propietarios = dbContext.Propietarios.ToList();
                 List<Multas> multas = dbContext.Multas.ToList();
                 List<Vehiculo> vehiculos = dbContext.Vehiculo.ToList();
 
-                var searchMultas = from e in dbContext.Multas 
-                                   join d in multas on e.Idnit equals d.IdMulta into table1
-                                   //from d in table1.ToList()
-                                   join i in vehiculos on table1. equals i.TipoPlaca into table2
-                                   from i in table2.ToList()
-                                  
+                var searchMultas = from m in dbContext.Multas   
+                                  join v in dbContext.Vehiculo on m.IdMulta equals v.IdNit
+                                  let p = dbContext.Propietarios.Where(x => x.IdNit == v.IdNit 
+                                  && x.IdNit >= v.IdPlaca && x.IdNit == Convert.ToInt32(v.NumeroPlaca))
+                                  where v.NumeroPlaca == null
+                                            
+                  orderby m.Monto, v.TipoPlaca, v.NumeroPlaca, v.IdNit 
+                  select new 
+                  {
+                      multas = m,
+                      Propietarios = p
+                  };
+                return PartialView(searchMultas);
+
+                /*var searchMultas = from e in dbContext.Multas 
+                                   join d in multas on e.Idnit equals d.IdMulta                           
+                                   join i in vehiculos on  equals i.TipoPlaca   
+                                   join p in propietarios on i.IdNit  equals i.NumeroPlaca
+
                                    select new 
                                    {                                       
                                        multas = e,
-                                       vehiculo = d,
-                                       nit = i
-                                   };
-                return PartialView(searchMultas);
-            }
+                                       vehiculo = d,                                       
+                                   };*/
+            }           
+      }
 
-            /*var searchMultas = dbContext.Multas;
-            int searchInt = Convert.ToInt32(searchString);
+        /*var searchMultas = dbContext.Multas;
+           int searchInt = Convert.ToInt32(searchString);
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                this.dbContext.Multas.Where(x => x.Idnit == searchInt);
-                searchString = dbContext.Find();
-            }
+           if (!String.IsNullOrEmpty(searchString))
+           {
+               this.dbContext.Multas.Where(x => x.Idnit == searchInt);
+               searchString = dbContext.Find();
+           }
 
-            return PartialView(await searchMultas.ToListAsync());*/
-        }
+           return PartialView(await searchMultas.ToListAsync());*/
 
         /*IList<Vehiculo> vehiculosList = new List<Vehiculo>
            {

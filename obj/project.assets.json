@@ -12817,11 +12817,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BDGSA\\Documents\\Proyectos VS\\MultasTransito\\MultasTransito.csproj",
+      "projectUniqueName": "C:\\Users\\BDGSA\\Documents\\MultasBot\\MultasTransito.csproj",
       "projectName": "MultasTransito",
-      "projectPath": "C:\\Users\\BDGSA\\Documents\\Proyectos VS\\MultasTransito\\MultasTransito.csproj",
+      "projectPath": "C:\\Users\\BDGSA\\Documents\\MultasBot\\MultasTransito.csproj",
       "packagesPath": "C:\\Users\\BDGSA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BDGSA\\Documents\\Proyectos VS\\MultasTransito\\obj\\",
+      "outputPath": "C:\\Users\\BDGSA\\Documents\\MultasBot\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

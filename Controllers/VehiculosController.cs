@@ -20,7 +20,7 @@ namespace MultasTransito.Controllers
         // GET: Vehiculos
         public async Task<IActionResult> Index([FromServices]SignInManager<IdentityUser> signInManager)
         {
-            if(signInManager.IsSignedIn(User))
+            if (signInManager.IsSignedIn(User))
             {
                 return View(await _context.Vehiculo.ToListAsync());
             }
