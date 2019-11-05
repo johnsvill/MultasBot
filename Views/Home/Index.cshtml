@@ -28,7 +28,7 @@
     </form>
     <div class="row">
         <div class="col-md-3 form-horizontal">
-            <form action="/Home/Index" method="post">
+            <form action="/Home/Index" method="post" enctype="multipart/form-data">
                 @using (Html.BeginForm())
                 {
                     <br />
@@ -39,6 +39,19 @@
                     <input type="number" class="form-control" name="numeroPlaca" placeholder="Número de placa" required autofocus>
                     <br />
                 }
+                <div>
+                    @using (Html.BeginForm("Import", "Home", FormMethod.Post, new
+                    {
+                        enctype = "multipart/form-data"
+                    }))
+                    {
+                        <div>
+                            @Html.Raw(ViewBag.Error)
+                            <span>Carga de Excel</span><input name="file" type="file" required />
+                            <button type="submit" value="Import">Import</button>
+                        </div>
+                    }
+                </div>
                 <button class="btn btn-success btn-lg btn-block" type="button">
                     <strong>Consultar</strong>
                 </button>

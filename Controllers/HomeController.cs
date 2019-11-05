@@ -8,21 +8,20 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data.OleDb;
-using Microsoft.Office.Interop.Excel;
-using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;    
 using Grpc.Core;
-using ExcelDataReader;
+using ExcelDataReader;  
 using System.Data;
+using Microsoft.AspNetCore.Http;
 
 namespace MultasTransito.Controllers
 {    
     public class HomeController : Controller
-    {
-        SqlConnection connect = new SqlConnection(System.Configuration.ConfigurationManager
-            .ConnectionStrings["DefaultConnection"].ConnectionString);              
+    {                     
         private readonly ApplicationDbContext dbContext;
-        OleDbConnection Econ; 
-       
+        //OleDbConnection Econ;       
+
         //Inyección de dependencia
         public HomeController(ApplicationDbContext dbContext)
         {
@@ -46,35 +45,82 @@ namespace MultasTransito.Controllers
                 return PartialView("_LoginPartial");
             }                        
         }
-
-        /*public ActionResult Index(HttpPostedFileBase file)
+      
+        //Obtiene el contenido del documento de excel
+        [HttpPost]
+        public ActionResult Index(HttpPostedFileBase file)
         {
-            string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-            string filepath = "/DataExcel/Data.xlsx" + fileName;
-
+            string fileName = Guid.NewGuid() + Path.GetExtension(file.fileName);
+            /*string filePath = "/DataExcel/Data.xlsx" + fileName;    
             file.SaveAs(Path.Combine(Server.MapPath("/DataExcel/Data.xlsx"), fileName));
-            InsertExcelData(filepath, fileName);
+            InsertExcelData(filePath, fileName);*/   
 
-            return View();
-        }*/
-
-        private void ExcelConnect(string filePath)
-        {
-            string constr = string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=""Excel 12.0 Xml;HDR=YES;""", filePath);
-
-            Econ = new OleDbConnection(constr);
+            if(file == null || file.ContentLenght == 0)
+            {
+                ViewBag.Error = "Por favor seleccione un archivo de excel";
+                return View("Index");
+            }
+            else
+            {                
+                if (file.FileName.EndsWith("xls") || file.FileName.EndsWith("xlsx"))
+                {
+                    string path = Server.MapPath("/DataExcel/Data.xlsx" + file.fileName);
+                    if (System.IO.File.Exists(path))
+                        System.IO.File.Delete(path);
+                    file.SaveAs(path);
+                    Excel.Application application = new Excel.Application();
+                    Excel.Workbook workbook = application.Workbooks.Open(path);                    
+                    Excel.Worksheet worksheet = workbook.ActiveSheet;
+                    Excel.Range range = worksheet.UsedRange;
+                    List<Vehiculo> listVehiculo = new List<Vehiculo>();
+                    for(int row = 10; row < range.Rows.Count; row++)
+                    {
+                        Vehiculo vh = new Vehiculo
+                        {
+                            IdPlaca = Convert.ToInt32(((Excel.Range)range.Cells[row, 1]).Text),
+                            Color = Convert.ToString(((Excel.Range)range.Cells[row, 2]).Text),
+                            IdNit = Convert.ToInt32(((Excel.Range)range.Cells[row, 3]).Text),
+                            Marca = Convert.ToString(((Excel.Range)range.Cells[row, 4]).Text),
+                            Modelo = Convert.ToString(((Excel.Range)range.Cells[row, 5]).Text),
+                            Año = Convert.ToInt32(((Excel.Range)range.Cells[row, 6]).Text),
+                            IdMulta = Convert.ToInt32(((Excel.Range)range.Cells[row, 7]).Text),
+                            TipoPlaca = Convert.ToString(((Excel.Range)range.Cells[row, 8]).Text),
+                            NumeroPlaca = Convert.ToString(((Excel.Range)range.Cells[row, 9]).Text)
+                        };
+                    }
+                    ViewBag.ListVehiculo = listVehiculo;
+                    return View("Carga correcta");
+                }
+                else
+                {
+                    ViewBag.Error = "Tipo de archivo es inválido";
+                    return View("Index");
+                }
+            }                   
         }
         
+        //Enlaza la conexión con el origen de datos
+        private void ExcelConnect(string filePath)
+        {
+            string constr = string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;
+                    Data Source=/DataExcel/Data.xlsx;Extended Properties=""Excel 12.0 Xml;HDR=YES; IMEX = 0;", filePath);            
+
+            //Econ = new OleDbConnection(constr);
+        }
+
+        //Setea un objeto con las columnas del documento, realiza la carga masiva, abre y cierra la conexión a la BD
         private void InsertExcelData(string filePath, string fileName)
         {
-            string fullpath = Server.MapPath("/DataExcel/Data.xlsx") + fileName;
-            ExcelConnect(fullpath);
+            SqlConnection connect = new SqlConnection(System.Configuration.ConfigurationManager
+            .ConnectionStrings["DefaultConnection"].ConnectionString);
             string query = string.Format("Select * from [{0}]", "Hoja1");
+            /*string fullpath = Server.MapPath("/DataExcel/Data.xlsx") + fileName;
+            ExcelConnect(fullpath);            
             OleDbCommand Ecom = new OleDbCommand(query, Econ);
             Econ.Open();            
             oda = new OleDbDataAdapter(query, Econ);
             Econ.Close();
-            oda.Fill(ds);
+            oda.Fill(ds);*/
 
             DataSet ds = new DataSet();
             System.Data.DataTable dt = ds.Tables[0];
@@ -98,6 +144,7 @@ namespace MultasTransito.Controllers
             connect.Close();
         }
 
+      // Inner Join 3 tablas
       [HttpPost]
       public IActionResult Search(string searchString)
       {           
@@ -120,55 +167,17 @@ namespace MultasTransito.Controllers
                       propietarios = p,
                       vehiculos = v
                   };
-                return PartialView(searchMultas);
-
-                /*var searchMultas = from e in dbContext.Multas 
-                                   join d in multas on e.Idnit equals d.IdMulta                           
-                                   join i in vehiculos on  equals i.TipoPlaca   
-                                   join p in propietarios on i.IdNit  equals i.NumeroPlaca
-
-                                   select new 
-                                   {                                       
-                                       multas = e,
-                                       vehiculo = d,                                       
-                                   };*/
+                return PartialView(searchMultas);              
             }           
       }
-
-        /*var searchMultas = dbContext.Multas;
-           int searchInt = Convert.ToInt32(searchString);
-
-           if (!String.IsNullOrEmpty(searchString))
-           {
-               this.dbContext.Multas.Where(x => x.Idnit == searchInt);
-               searchString = dbContext.Find();
-           }
-
-           return PartialView(await searchMultas.ToListAsync());*/
-
-        /*IList<Vehiculo> vehiculosList = new List<Vehiculo>
-           {
-               new Vehiculo() { IdNit = 784512 },
-               new Vehiculo() { TipoPlaca = "P" },
-               new Vehiculo() { IdPlaca = 123456789 }
-           };
-           ViewData["DatosVehiculo"] = vehiculosList;*/
-
+              
         public IActionResult About()
-        {
-            //ViewData["Message"] = "";
+        {            
             return View();
         }
-
-        public ViewResult ShowView()
-        {
-            ViewBag.Logo = Url.Action("");
-            return View();
-        }
-
+      
         public IActionResult Contact()
-        {
-            //ViewData["Message"] = "";
+        {            
             return View();
         }
 
@@ -182,5 +191,5 @@ namespace MultasTransito.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-    }
+    }    
 }

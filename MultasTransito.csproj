@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.94.2" />
+    <PackageReference Include="DatabaseConnections.OleDb" Version="2.0.0" />
     <PackageReference Include="ExcelDataReader" Version="3.6.0" />
     <PackageReference Include="Grpc.Core" Version="2.25.0-pre1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
