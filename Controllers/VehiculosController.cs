@@ -20,6 +20,11 @@ namespace MultasTransito.Controllers
         // GET: Vehiculos
         public async Task<IActionResult> Index([FromServices]SignInManager<IdentityUser> signInManager)
         {
+            using(var db = new ApplicationDbContext())
+            {
+                var data = this._context.Vehiculo.FromSql("dbo.CargaMasiva").OrderBy(x => x.IdNit);                
+            }
+            
             if (signInManager.IsSignedIn(User))
             {
                 return View(await _context.Vehiculo.ToListAsync());

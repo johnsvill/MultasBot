@@ -7,20 +7,19 @@ using System.Diagnostics;
 using System.Linq;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Data.OleDb;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.IO;    
 using Grpc.Core;
-using ExcelDataReader;  
 using System.Data;
 using Microsoft.AspNetCore.Http;
 
 namespace MultasTransito.Controllers
 {    
     public class HomeController : Controller
-    {                     
-        private readonly ApplicationDbContext dbContext;
-        //OleDbConnection Econ;       
+    {
+        /*SqlConnection connect = new SqlConnection(System.Configuration.ConfigurationManager
+            .ConnectionStrings["DefaultConnection"].ConnectionString);*/
+        private readonly ApplicationDbContext dbContext;         
 
         //Inyección de dependencia
         public HomeController(ApplicationDbContext dbContext)
@@ -47,13 +46,13 @@ namespace MultasTransito.Controllers
         }
       
         //Obtiene el contenido del documento de excel
-        [HttpPost]
-        public ActionResult Index(HttpPostedFileBase file)
+        
+       /* public ActionResult Index(HttpPostedFileBase file)
         {
             string fileName = Guid.NewGuid() + Path.GetExtension(file.fileName);
-            /*string filePath = "/DataExcel/Data.xlsx" + fileName;    
+            string filePath = "/DataExcel/Data.xlsx" + fileName;    
             file.SaveAs(Path.Combine(Server.MapPath("/DataExcel/Data.xlsx"), fileName));
-            InsertExcelData(filePath, fileName);*/   
+            InsertExcelData(filePath, fileName);   
 
             if(file == null || file.ContentLenght == 0)
             {
@@ -97,31 +96,20 @@ namespace MultasTransito.Controllers
                     return View("Index");
                 }
             }                   
-        }
+        }*/
         
         //Enlaza la conexión con el origen de datos
         private void ExcelConnect(string filePath)
         {
             string constr = string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;
-                    Data Source=/DataExcel/Data.xlsx;Extended Properties=""Excel 12.0 Xml;HDR=YES; IMEX = 0;", filePath);            
-
-            //Econ = new OleDbConnection(constr);
+                    Data Source=/DataExcel/Data.xlsx;Extended Properties=""Excel 12.0 Xml;HDR=YES; IMEX = 0;", filePath);                       
         }
 
         //Setea un objeto con las columnas del documento, realiza la carga masiva, abre y cierra la conexión a la BD
-        private void InsertExcelData(string filePath, string fileName)
-        {
-            SqlConnection connect = new SqlConnection(System.Configuration.ConfigurationManager
-            .ConnectionStrings["DefaultConnection"].ConnectionString);
+        /*private void InsertExcelData(string filePath, string fileName)
+        {            
             string query = string.Format("Select * from [{0}]", "Hoja1");
-            /*string fullpath = Server.MapPath("/DataExcel/Data.xlsx") + fileName;
-            ExcelConnect(fullpath);            
-            OleDbCommand Ecom = new OleDbCommand(query, Econ);
-            Econ.Open();            
-            oda = new OleDbDataAdapter(query, Econ);
-            Econ.Close();
-            oda.Fill(ds);*/
-
+            
             DataSet ds = new DataSet();
             System.Data.DataTable dt = ds.Tables[0];
             
@@ -142,7 +130,7 @@ namespace MultasTransito.Controllers
             connect.Open();
             objBulk.WriteToServer(dt);
             connect.Close();
-        }
+        }*/
 
       // Inner Join 3 tablas
       [HttpPost]
