@@ -5,10 +5,10 @@
 @inject UserManager<IdentityUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
-{    
+{
     <authentication mode="Forms">
         <form name=".ASPXAUTH" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home",
-                                                       new { area = "" })" method="post" id="logoutForm" class="navbar-right">            
+                                                      new { area = "" })" method="post" id="logoutForm" class="navbar-right">
             <credentials passwordFormat="SHA1">
                 <user name="User" password="encrypt-pass" />
             </credentials>
@@ -17,12 +17,12 @@
                     <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
                         <strong>
                             BIENVENIDO
-                        </strong> 
+                        </strong>
                         @UserManager.GetUserName(User)!
                     </a>
                 </li>
-                <li>                    
-                    <button type="submit" class="btn btn-link navbar-btn btn-block">
+                <li>
+                    <button type="submit" class="btn btn-link navbar-btn btn-block" autofocus>
                         <strong>
                             Cerrar sesi�n
                         </strong>
@@ -44,10 +44,10 @@ else
                 actionName = actionObj.ToString();
             }
         }
-        <li id="login" class=" @if (actionName == "") {  <text> active </text>} ">
+        <li id="login" class=" @if (actionName == "Index") {  <text> active </text>} ">
             <a asp-area="Identity" asp-page="/Account/Register">Registrarse</a>
         </li>
-        <li id="login" class=" @if (actionName == "") {  <text> active </text>} ">
+        <li id="login" class=" @if (actionName == "Index") {  <text> active </text>} ">
             <a asp-area="Identity" asp-page="/Account/Login">Login</a>
         </li>
     </ul>

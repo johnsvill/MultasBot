@@ -61,8 +61,14 @@
                 @Html.DisplayFor(modelItem => item.TipoPlaca)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdPlaca" class="btn btn-success">Editar</a> 
-                <a asp-action="Details" asp-route-id="@item.IdPlaca" class="btn btn-primary">Detalles</a> 
+                @Html.DisplayFor(modelItem => item.IdMulta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroPlaca)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPlaca" class="btn btn-success">Editar</a>
+                <a asp-action="Details" asp-route-id="@item.IdPlaca" class="btn btn-primary">Detalles</a>
                 <a asp-action="Delete" asp-route-id="@item.IdPlaca" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>

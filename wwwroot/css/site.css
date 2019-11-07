@@ -20,9 +20,28 @@ body {
     background-color: #A51B0B !important;
 }
 
-    .navbar-nav li.active a {
-        background-color: rgba(0,0,0,0) !important;
-    }
+.subir > input {
+    padding: 5px 10px;
+    background: #1f1f1f;
+    color: #fff;
+    border: 0px solid #fff;
+    margin-bottom: 10px;
+    
+}
+
+.subir img {
+    width: 60px;
+    cursor: pointer;    
+}
+
+.subir:hover {
+    color: #fff;
+    background-color: #A51B0B;
+}
+
+.navbar-nav li.active a {
+    background-color: rgba(0,0,0,0) !important;
+}
 
 .footer-copyright {
     background: black;
