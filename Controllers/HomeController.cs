@@ -60,7 +60,7 @@ namespace MultasTransito.Controllers
                 var fileName = DateTime.Now.ToString("dd-MM-yyyy") + file.FileName.Split(new[] { '.' },
                     StringSplitOptions.RemoveEmptyEntries).Last();
                 SaveFile(file, fileName);
-                UploadToDataBase(fileName);
+                //UploadToDataBase(fileName);
                 return RedirectToAction("Index");
             }
             
@@ -119,7 +119,7 @@ namespace MultasTransito.Controllers
             throw new NotImplementedException();
         }
 
-        private void SaveFile(HttpPostedFileBase file, string fileName)
+        /*private void SaveFile(HttpPostedFileBase file, string fileName)
         {
             var path = System.IO.Path.Combine(Server.MapPath("~/DataExcel/Data.xlsx"), fileName);
             var data = new byte[file.ContentLength];
@@ -129,10 +129,10 @@ namespace MultasTransito.Controllers
             {
                 sw.Write(data, 0, data.Length);
             }
-        }
+        }*/
 
         //Extraer los datos del documento y subirlos a la BD
-        private void UploadToDataBase(string fileName)
+        /*private void UploadToDataBase(string fileName)
         {
             var vehiculo = new List<Vehiculo>();
             using (var stream = System.IO.File.Open(Path.Combine(Server.MapPath("~/DataExcel/Data.xlsx"),
@@ -162,7 +162,7 @@ namespace MultasTransito.Controllers
                 dbContext.Vehiculo.AddRange(vehiculo);
                 dbContext.SaveChanges();
             }
-        }
+        }*/
      
         //Enlaza la conexión con el origen de datos
         /*private void ExcelConnect(string filePath)
