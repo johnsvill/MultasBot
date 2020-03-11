@@ -62,7 +62,6 @@ C:\Users\BDGSA\Documents\MultasBot\obj\Debug\netcoreapp2.1\MultasTransito.RazorA
 C:\Users\BDGSA\Documents\MultasBot\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\BDGSA\Documents\MultasBot\obj\Debug\netcoreapp2.1\MultasTransito.AssemblyInfoInputs.cache
 C:\Users\BDGSA\Documents\MultasBot\obj\Debug\netcoreapp2.1\MultasTransito.AssemblyInfo.cs
-C:\Users\Jonathan Villeda\Documents\Propuesta BDG\MultasBot\obj\Debug\netcoreapp2.1\MultasTransito.csprojAssemblyReference.cache
 C:\Users\Jonathan Villeda\Documents\Propuesta BDG\MultasBot\obj\Debug\netcoreapp2.1\MultasTransito.RazorAssemblyInfo.cache
 C:\Users\Jonathan Villeda\Documents\Propuesta BDG\MultasBot\obj\Debug\netcoreapp2.1\MultasTransito.RazorAssemblyInfo.cs
 C:\Users\Jonathan Villeda\Documents\Propuesta BDG\MultasBot\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
@@ -153,3 +152,4 @@ C:\Users\Jonathan Villeda\Documents\Propuesta BDG\MultasBot\obj\Debug\netcoreapp
 C:\Users\Jonathan Villeda\Documents\Propuesta BDG\MultasBot\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
 C:\Users\Jonathan Villeda\Documents\Propuesta BDG\MultasBot\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Jonathan Villeda\Documents\Propuesta BDG\MultasBot\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\Jonathan Villeda\Documents\Propuesta BDG\MultasBot\obj\Debug\netcoreapp2.1\MultasTransito.csprojAssemblyReference.cache

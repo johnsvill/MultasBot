@@ -5,11 +5,12 @@ namespace MultasTransito.Models
     public class Municipios
     {
         [Key]
+        [Display(Name = "ID Municipalidad")]
         public int IdMunicipalidad { get; set; }
         [Required]
+        [Display(Name = "Nombre de municipio")]
         public string Nombre { get; set; }
-        public string Direccion { get; set; }
-        public string Descripcion { get; set; }
-        public bool IsChecked { get; set; }
+        [Display(Name = "Dirección")]
+        public string Direccion { get; set; }               
     }
 }

@@ -71,9 +71,7 @@ namespace MultasTransito.Controllers
                     cmd.CommandText = "dbo.sp_ConsultarMultas";
                     cmd.Parameters.Add("@IdMuni", System.Data.SqlDbType.Int).Value = municipios.IdMunicipalidad;
                     cmd.Parameters.Add("@Nombre", System.Data.SqlDbType.VarChar, 32).Value = municipios.Nombre;
-                    cmd.Parameters.Add("@Direccion", System.Data.SqlDbType.VarChar, 256).Value = municipios.Direccion;
-                    cmd.Parameters.Add("@Descripcion", System.Data.SqlDbType.VarChar, 256).Value = municipios.Descripcion;
-                    cmd.Parameters.Add("IsChecked", System.Data.SqlDbType.Bit).Value = municipios.IsChecked;
+                    cmd.Parameters.Add("@Direccion", System.Data.SqlDbType.VarChar, 256).Value = municipios.Direccion;                    
                     //cmd.ExecuteNonQuery();
                     conn.Close();
                     _context.Add(municipios);

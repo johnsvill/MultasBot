@@ -17,13 +17,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Direccion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsChecked)
-            </th>            
+            </th>                      
         </tr>
     </thead>
     <tbody>
@@ -34,13 +28,7 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Direccion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsChecked)
-            </td>
+            </td>            
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdMunicipalidad" class="btn btn-success">Editar</a>
                 <a asp-action="Details" asp-route-id="@item.IdMunicipalidad" class="btn btn-primary">Detalles</a>

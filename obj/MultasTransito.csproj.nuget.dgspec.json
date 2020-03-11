@@ -68,7 +68,7 @@
             "Microsoft.AspNetCore.Razor.Design": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.1.2, )"
+              "version": "[2.2.0, )"
             },
             "Microsoft.IdentityModel.Protocols": {
               "target": "Package",
@@ -102,7 +102,7 @@
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
-              "version": "[4.7.0-preview2.19523.17, )"
+              "version": "[4.7.0, )"
             }
           },
           "imports": [
